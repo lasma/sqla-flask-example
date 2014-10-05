@@ -19,15 +19,11 @@ After installation run StackBuilder and install PostGIS template.
 
 Verify installation by opening command prompt and type in:
 
-    ```
     psql --help
-    ```
 
 # Project Setup
 Update database configuration (port) within `config.py` file.
 
 Set up database:
 
-    ```
     $ python scripts/db_setup.py
-    ```
