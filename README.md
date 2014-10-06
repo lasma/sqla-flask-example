@@ -7,6 +7,7 @@ Required packages:
     * pip (Python package installer)
     * flask
     * sqlalchemy
+    * geoalchemy
 
 
 ## PostgreSQL & PostGIS Setup
@@ -38,6 +39,9 @@ If these commands are not recognised then add {Installation Directory}/bin to th
 
     export PATH=$PATH:/opt/PostgreSQL/9.3/bin
 
+## Installing Python Modules
+
+TBD
 
 # Project Setup
 Update database configuration (such as port number) within `config.py` file.

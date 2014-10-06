@@ -43,7 +43,8 @@ if __name__ == "__main__":
     os.environ['PGPASSWORD'] = db_config["password"]
     # os.system("shp2pgsql -W LATIN1 -s 4326 -I ../data/ne_110m_admin_0_countries.shp public.countries "
     #           " | psql -h {host} -p {port} -d {database} -U {user} --no-password".format(**db_config))
-    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f ../data/countries.sql".format(**db_config))
-    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f ../data/cities.sql".format(**db_config))
+    # NOTE: we expect script to be run from the project root folder! or else file paths won't be found!
+    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f data/countries.sql".format(**db_config))
+    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f data/cities.sql".format(**db_config))
 
     print "Done!"
