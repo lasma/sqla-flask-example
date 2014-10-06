@@ -5,7 +5,7 @@ DB_NAME = "sqla_demo"
 DB_USER = "demo0"
 DB_PASS = "demo"
 DB_HOST = "localhost"
-DB_PORT = 9241
+DB_PORT = 5432
 DB_TEMPLATE = "template_postgis"
 db_config = dict(driver="postgresql", host=DB_HOST, port=DB_PORT, database=DB_NAME, user=DB_USER, password=DB_PASS, template=DB_TEMPLATE)
 

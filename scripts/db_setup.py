@@ -29,18 +29,21 @@ if __name__ == "__main__":
         print "Supplied postgres password is incorrect!"
         exit(1)
 
-    # # Create user "demo" with password "demo"
-    # os.system("psql -h {host} -p {port} -d postgres -U postgres --no-password "
-    #           "-c \"CREATE ROLE {user} LOGIN ENCRYPTED PASSWORD '{password}' "
-    #           "NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;\"".format(**db_config))
-    #
-    # # Create database "demo" with owner "demo"
-    # os.system("psql -h {host} -p {port} -d postgres -U postgres --no-password "
-    #           "-c \"CREATE DATABASE {database} WITH ENCODING='UTF8' OWNER={user} "
-    #           "TEMPLATE={template} CONNECTION LIMIT=-1;\"".format(**db_config))
+    # Create user "demo" with password "demo"
+    os.system("psql -h {host} -p {port} -d postgres -U postgres --no-password "
+              "-c \"CREATE ROLE {user} LOGIN ENCRYPTED PASSWORD '{password}' "
+              "NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;\"".format(**db_config))
+
+    # Create database "demo" with owner "demo"
+    os.system("psql -h {host} -p {port} -d postgres -U postgres --no-password "
+              "-c \"CREATE DATABASE {database} WITH ENCODING='UTF8' OWNER={user} "
+              "TEMPLATE={template} CONNECTION LIMIT=-1;\"".format(**db_config))
 
     # Load data in to the database:
     os.environ['PGPASSWORD'] = db_config["password"]
-    os.system("shp2pgsql -s 4326 -I data/ne_110m_admin_0_countries.shp public.countries "
-              " | psql -h {host} -p {port} -d {database} -U {user} --no-password".format(**db_config))
-    #ne_110m_admin_0_countries.shp
+    # os.system("shp2pgsql -W LATIN1 -s 4326 -I ../data/ne_110m_admin_0_countries.shp public.countries "
+    #           " | psql -h {host} -p {port} -d {database} -U {user} --no-password".format(**db_config))
+    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f ../data/countries.sql".format(**db_config))
+    os.system("psql -h {host} -p {port} -d {database} -U {user} --no-password -f ../data/cities.sql".format(**db_config))
+
+    print "Done!"
