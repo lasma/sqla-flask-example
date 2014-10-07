@@ -3,10 +3,11 @@
 Required packages:
 * PostgreSQL + PostGIS (9.x + 2.x)
 * Python 2.7.x
-* Python modules:
-    * pip (Python package installer)
+* pip (Python package installer)
+* Python modules (requirements.txt):
     * flask 0.10.1
-    * sqlalchemy 0.9.4
+    * flask-restful 0.2.12
+    * sqlalchemy 0.8.4
     * geoalchemy 0.7.2
     * shapely 1.4.3
 * Optional: PyCharm IDE
@@ -40,17 +41,27 @@ If these commands are not recognised then add {Installation Directory}/bin to th
 
     export PATH=$PATH:/opt/PostgreSQL/9.3/bin
 
-## Installing Python Modules
 
-TBD
+## Installing Python Modules (Ubuntu)
 
-Example:
+__Ideally python modules should be installed in a virtual environment__
 
-    $ sudo pip install sqlalchemy==0.8.4
+Install pip using package installer:
+    $ sudo apt-get install python-pip
+
+Install python packages using pip:
+    $ sudo pip install --requirement=requirements.txt
+
+
+## Pycharm IDE
+
+PyCharm is a great integrated development environment for Python.
+Download free Community Edition: http://www.jetbrains.com/pycharm/download/
 
 # Project Setup
-Update database configuration (such as port number) within `config.py` file.
 
-Execute `scripts/db_setup.py` to set up database:
+1. Update database configuration (such as port number) within `config.py` file.
+
+2. Execute `scripts/db_setup.py` to set up database:
 
     $ python scripts/db_setup.py

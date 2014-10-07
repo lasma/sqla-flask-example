@@ -1,0 +1,6 @@
+# Feed the follwing packages into pip install
+flask==0.10.1
+flask-restful==0.2.12
+sqlalchemy==0.8.4
+geoalchemy==0.7.2
+shapely==1.4.3
