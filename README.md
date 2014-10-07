@@ -5,10 +5,11 @@ Required packages:
 * Python 2.7.x
 * Python modules:
     * pip (Python package installer)
-    * flask
-    * sqlalchemy
-    * geoalchemy
-
+    * flask 0.10.1
+    * sqlalchemy 0.9.4
+    * geoalchemy 0.7.2
+    * shapely 1.4.3
+* Optional: PyCharm IDE
 
 ## PostgreSQL & PostGIS Setup
 

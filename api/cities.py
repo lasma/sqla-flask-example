@@ -15,7 +15,7 @@ class CitiesApi(Resource):
             city["id"] = record.gid
             city["name"] = record.name
             cities.append(city)
-            
+
         response = dict(data=cities)
 
         return response, 200

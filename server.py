@@ -1,5 +1,4 @@
 from flask import Flask
-
 from flask.ext.restful import Api
 from api import IndexApi, RoadsApi, CitiesApi, CountriesApi
 

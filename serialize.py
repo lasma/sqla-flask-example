@@ -1,2 +1,0 @@
-def serialize(record):
-    pass
