@@ -1,6 +1,6 @@
 # Requirements
 
-Required packages:
+Required software/packages:
 * PostgreSQL + PostGIS (9.x + 2.x)
 * Python 2.7.x
 * pip (Python package installer)
@@ -34,12 +34,12 @@ In StackBuilder wizard:
 
 Verify installation by opening command prompt and type in:
 
-    psql --help
-    shp2pgsql --help
+    $ psql --help
+    $ shp2pgsql --help
 
 If these commands are not recognised then add {Installation Directory}/bin to the system path,e.g.
 
-    export PATH=$PATH:/opt/PostgreSQL/9.3/bin
+    $ export PATH=$PATH:/opt/PostgreSQL/9.3/bin
 
 
 ## Installing Python Modules (Ubuntu)
@@ -47,9 +47,11 @@ If these commands are not recognised then add {Installation Directory}/bin to th
 __Ideally python modules should be installed in a virtual environment__
 
 Install pip using package installer:
+
     $ sudo apt-get install python-pip
 
 Install python packages using pip:
+
     $ sudo pip install --requirement=requirements.txt
 
 
@@ -58,10 +60,21 @@ Install python packages using pip:
 PyCharm is a great integrated development environment for Python.
 Download free Community Edition: http://www.jetbrains.com/pycharm/download/
 
+
 # Project Setup
 
-1. Update database configuration (such as port number) within `config.py` file.
+1. Update database configuration (such as port number) within `config.py` file. Note, template database template_postgis is required.
 
-2. Execute `scripts/db_setup.py` to set up database:
+2. Execute `scripts/db_setup.py` to set up database and load sample data:
 
     $ python scripts/db_setup.py
+
+3. Launch flask server:
+
+    $ python server.py
+
+4. Check out api endpoints:
+
+    http://localhost:5000/api/roads
+    http://localhost:5000/api/cities
+    http://localhost:5000/api/countries
