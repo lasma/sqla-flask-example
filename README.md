@@ -44,6 +44,10 @@ If these commands are not recognised then add {Installation Directory}/bin to th
 
 TBD
 
+Example:
+
+    $ sudo pip install sqlalchemy==0.8.4
+
 # Project Setup
 Update database configuration (such as port number) within `config.py` file.
 

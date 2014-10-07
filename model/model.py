@@ -13,7 +13,7 @@ class Cities(Base):
     gid                 = sa.Column(sa.Integer, primary_key=True)
     name                = sa.Column(sa.String(100))
     country             = sa.Column("sov0name", sa.String(100))
-    #geom                = ga.GeometryColumn(ga.Geometry(2))
+    geom                = ga.GeometryColumn(ga.Geometry(2))
 
     def get_as_dict(self, depth=1):
         return serialize.get_as_dict(self, depth=depth)
@@ -26,6 +26,7 @@ class Countries(Base):
 
     gid                 = sa.Column(sa.Integer, primary_key=True)
     name                = sa.Column(sa.String(100))
+    geom                = ga.GeometryColumn(ga.Geometry(2))
 
     def get_as_dict(self, depth=1):
         return serialize.get_as_dict(self, depth=depth)

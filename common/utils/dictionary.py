@@ -1,6 +1,6 @@
 import datetime
 
-# import geoalchemy as ga
+import geoalchemy as ga
 from shapely.wkb import loads
 from common.utils.time import time_to_string
 
@@ -84,11 +84,11 @@ def serializable(dictionary):
         elif type(value) is datetime.date:
             new_dict[key] = time_to_string(value)  # value.strftime("%Y-%m-%dT%H:%M:%S.") + value.strftime("%f")[:3] + "Z"
 
-        # # Handle conversion of generic geometry types to geojson
-        # elif isinstance(value, ga.SpatialElement) is True:
-        #     wkt = loads(str(value.geom_wkb)).wkt
-        #     geojson = ga.utils.from_wkt(wkt)
-        #     new_dict[key] = geojson
+        # Handle conversion of generic geometry types to geojson
+        elif isinstance(value, ga.SpatialElement) is True:
+            wkt = loads(str(value.geom_wkb)).wkt
+            geojson = ga.utils.from_wkt(wkt)
+            new_dict[key] = geojson
 
         else:
             # Grab value "as is" and add to the dictionary.
