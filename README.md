@@ -11,6 +11,7 @@ Required software/packages:
     * geoalchemy 0.7.2
     * shapely 1.4.3
 * Optional: PyCharm IDE
+* Recommended: virtualenv
 
 ## PostgreSQL & PostGIS Setup
 
@@ -44,7 +45,7 @@ If these commands are not recognised then add {Installation Directory}/bin to th
 
 ## Installing Python Modules (Ubuntu)
 
-__Ideally python modules should be installed in a virtual environment__
+__Ideally, python modules should be installed in a virtual environment__
 
 Install pip using package installer:
 
@@ -66,15 +67,18 @@ Download free Community Edition: http://www.jetbrains.com/pycharm/download/
 1. Update database configuration (such as port number) within `config.py` file. Note, template database template_postgis is required.
 
 2. Execute `scripts/db_setup.py` to set up database and load sample data:
-
+    ```
     $ python scripts/db_setup.py
+    ```
 
 3. Launch flask server:
-
+    ```
     $ python server.py
+    ```
 
 4. Check out api endpoints:
-
+    ```
     http://localhost:5000/api/roads
     http://localhost:5000/api/cities
     http://localhost:5000/api/countries
+    ```

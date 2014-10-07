@@ -49,16 +49,3 @@ HTTP_INTERNAL_ERROR_MSG = "INTERNAL SERVER ERROR"
 # Usually this implies future availability (e.g., a new feature of a web-service API).
 HTTP_NOT_IMPLEMENTED_CODE = 501
 HTTP_NOT_IMPLEMENTED_MSG = "NOT IMPLEMENTED"
-
-""" CUSTOM CODES >1000 """
-
-# Request was executed OK but result might be unexpected to the requester due to silent warnings
-HTTP_OK_WITH_WARNING_CODE = 1200
-HTTP_OK_WITH_WARNING_MSG = "OK WITH WARNING"
-
-HTTP_CREATED_WITH_WARNING_CODE = 1201
-HTTP_CREATED_WITH_WARNING_MSG = "CREATED WITH WARNING"
-
-# Request encountered an internal error relating to the integration between an external system.
-HTTP_SERVER_INTEGRATION_ERROR = 1500
-HTTP_SERVER_INTEGRATION_ERROR_MSG = "INTERNAL SERVER INTEGRATION ERROR"

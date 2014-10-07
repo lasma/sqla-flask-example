@@ -1,7 +1,8 @@
 from flask.ext.restful import Resource
 from config import Session
 from model import Cities
-from common.exception_handler import ExceptionHandler
+from common.exception.handler import ExceptionHandler
+from common.httpcodes import *
 
 class CitiesApi(Resource):
 
@@ -24,14 +25,24 @@ class CitiesApi(Resource):
 
 class CitiesIdApi(Resource):
 
+    # Wrap get call in ExceptionHandler to gracefully recover from unexpected api errors
+    # Easy way to see ExceptionHandler at work is to call http://localhost:5000/api/cities/a
     @ExceptionHandler
     def get(self, id):
+        """Get city by ID and return as unique resource.
+
+        For example:
+            http://localhost:5000/api/cities/1
+
+        :param id {int}: unique id of the city to return
+        :return:
+        """
 
         session = Session()
         city = session.query(Cities).get(id)
         if city:
             response = dict(data=city.get_as_dict())
         else:
-            return "city with id={} does not exist!".format(id), 400
+            return "City with id={} does not exist!".format(id), HTTP_NOT_FOUND_CODE
 
-        return response, 200
+        return response, HTTP_OK_CODE

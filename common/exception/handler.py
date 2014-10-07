@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 class ExceptionHandler(object):
+    """Use this class to catch any sort of flask api call exception and return server error rather
+    than crash the flask server and display stack trace
+    """
 
     def __init__(self, f):
         self.f = f
@@ -9,7 +12,6 @@ class ExceptionHandler(object):
         try:
             return self.f(self, **kwargs)
 
-        # Anything else that might go wrong     will be caught here
         except Exception as e:
             return "server error", 500
 
