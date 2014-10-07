@@ -27,7 +27,7 @@ class Cities(Base):
 
 class Countries(Base):
     """Model for countries table"""
-    
+
     __tablename__       = u'countries'
 
     gid                 = sa.Column(sa.Integer, primary_key=True)

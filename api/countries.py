@@ -1,9 +1,11 @@
 from flask.ext.restful import Resource
 from config import Session
 from model import Countries
+from common.exception import ExceptionHandler
 
 class CountriesApi(Resource):
 
+    @ExceptionHandler
     def get(self):
 
         session = Session()
